@@ -38,16 +38,9 @@ return tiposDeCaracteres[aleatorio][Math.floor(  Math.random () * tiposDeCaracte
 function pegarTamanhoDaSenha() {
 
    const tamanho = document.querySelector('#size').value;
-    if(isNaN(tamanho) || tamanho < 4 || tamanho > 128 ) {
-       Toastify({  
-        text: 'tamanho de senha inválido, selecione entre 4 e 128!!!',
-        duration: 2000,
-        style: {
-            background: '#fff',
-            color:'#000',
-            boxShadow:'none'
-        }
-       }).showToast();
+    if(isNaN(tamanho) || tamanho < 6 || tamanho > 128 ) {
+      
+       message('tamanho de senha inválido, selecione entre 6 e 128!!!', '#b35')
 
     }
 
@@ -66,6 +59,21 @@ return SenhaGerada;
 
 }
 
+function message(text, background){
+
+    Toastify({  
+        text: text,
+        duration: 2000,
+        style: {
+            background: background,
+            color:'#000',
+            boxShadow:'none',
+            
+        }
+       }).showToast();
+
+}
+
 
 /*  VERIFICAR SE ESTA INDO PRA DENTRO DO ARRAY!, verifica oque esta sendo imprimido*/ 
 document.querySelector('#generate').addEventListener('click', function(){
@@ -73,7 +81,25 @@ document.querySelector('#generate').addEventListener('click', function(){
    const tamanho = pegarTamanhoDaSenha()
    const tiposDeCaracteres = pegarTiposdeCaracteres()
 
-   const senhaGerada = gerarSenha(tamanho, tiposDeCaracteres)
+   if(!size) {
+    return;
+   }
+
+
+    if(!tiposDeCaracteres.length){
+        message ('selecione pelo menos um tipo de caracter para sua senha!', '#fff')
+        return;
+    }
+
+    const senhaGerada = gerarSenha(tamanho, tiposDeCaracteres)
+
     document.querySelector ('#password_container').classList.add('show')
    document.querySelector('#password').textContent= senhaGerada
 }); 
+
+document.querySelector('#copy').addEventListener('click', function() {
+
+    navigator.clipboard.writeText(document.querySelector('#password').textContent) 
+    message('Senha copiada com sucesso!', '#54ec8e')
+})
+
