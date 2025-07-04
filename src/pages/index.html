@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="/public/css/global.css">
+    <link rel="stylesheet" href="/public/css/fonts.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />  <!--lib para funcionar o icone'-->
+    
+    <title>Gerador de senhas</title>
+    
+</head>
+<body>
+    
+<div id="container">
+    <img  src="/public/assets/images/cadeado.png" alt="">
+    <h1 id="title">Gerar Senha</h1>
+
+    <div id="password_container">  <!--div aonde vai aparecer a senha  -->
+        <span id="password"></span>
+        <button id="copy">
+            <i class="fa-solid fa-copy"></i> 
+        </button>     <!--Botao para copiar a senha gerada-->
+
+    </div>
+
+    <div id="password_items">   <!--Div dos items da senha requisitos para ela-->
+        <div class="item">
+            <input id="size" type="number">
+            <label for="size">Quantidade de caracteres</label>
+
+        </div>
+
+        <div class="item">
+            <input type="checkbox" name="include_uppercase" id="include_uppercase">
+            <label for="include_uppercase">Incluir letra maiuscula</label>
+
+
+        </div>
+
+        <div class="item">
+            <input type="checkbox" name="include_lowercase" id="include_lowercase">
+            <label for="include_lowercase">Incluir letra minuscula</label>
+
+
+        </div>
+
+        <div class="item">
+            <input type="checkbox" name="include_number" id="include_number">
+            <label for="include_number">Incluir numero</label>
+
+
+        </div>
+
+        <div class="item">
+            <input type="checkbox" name="include_special" id="include_special">
+            <label for="include_special">Incluir caractere especial</label>
+
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+</body>
+</html>
