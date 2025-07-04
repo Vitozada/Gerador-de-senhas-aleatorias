@@ -63,14 +63,16 @@ margin-bottom: 15px;
 background-color: var(--color-neutral-2);
 color: var(--color-neutral-1) ;
 width: 100%;
-display: flex;
+display: none;
 max-width: 400px;
 justify-content: space-between;
 align-items: center;
 border-radius: 8px;
 padding: 8px 18px;
+}
 
-
+#password_container.show{
+  display:flex ;
 }
 
 #password{

@@ -39,7 +39,15 @@ function pegarTamanhoDaSenha() {
 
    const tamanho = document.querySelector('#size').value;
     if(isNaN(tamanho) || tamanho < 4 || tamanho > 128 ) {
-        alert('Tamanho Inválido, escolha um tamanho de senha entre 4 e 128');
+       Toastify({  
+        text: 'tamanho de senha inválido, selecione entre 4 e 128!!!',
+        duration: 2000,
+        style: {
+            background: '#fff',
+            color:'#000',
+            boxShadow:'none'
+        }
+       }).showToast();
 
     }
 
@@ -66,6 +74,6 @@ document.querySelector('#generate').addEventListener('click', function(){
    const tiposDeCaracteres = pegarTiposdeCaracteres()
 
    const senhaGerada = gerarSenha(tamanho, tiposDeCaracteres)
-
+    document.querySelector ('#password_container').classList.add('show')
    document.querySelector('#password').textContent= senhaGerada
 }); 
